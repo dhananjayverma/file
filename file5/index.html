@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Socket.IO Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    // Listen for the 'welcome' event from the server
+    socket.on('welcome', (message) => {
+      console.log('Received welcome message:', message);
+    });
+
+    // Emit a custom event to the server
+    socket.emit('message', 'Hello, server!');
+
+    // Disconnect event
+    socket.on('disconnect', () => {
+      console.log('Disconnected from the server');
+    });
+  </script>
+</head>
+<body>
+  <h1>Socket.IO Example</h1>
+</body>
+</html>
